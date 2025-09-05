@@ -1,0 +1,417 @@
+.courseCard {
+  background: var(--color-white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-gray-200);
+  overflow: visible;
+  transition: transform var(--transition-slow),
+    box-shadow var(--transition-slow);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.courseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cardHeader {
+  padding: var(--spacing-6);
+  background: linear-gradient(
+    135deg,
+    var(--color-gray-50) 0%,
+    var(--color-gray-200) 100%
+  );
+  border-bottom: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  gap: var(--spacing-4);
+}
+
+.courseTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-gray-800);
+  margin: 0;
+  line-height: 1.3;
+  height: 3.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  flex-shrink: 0;
+}
+
+.courseDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.4;
+  height: 4.2rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: break-word;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.courseDescription.expanded {
+  height: 6rem;
+  -webkit-line-clamp: unset;
+  overflow-y: auto;
+  display: block;
+  background: var(--color-gray-50);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--color-gray-200);
+}
+
+.courseDescription.truncated {
+  cursor: pointer;
+  position: relative;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.themesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  height: 2.5rem;
+  overflow: visible;
+  align-items: flex-end;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.themeTag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-3);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  color: var(--color-white);
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.cardContent {
+  padding: var(--spacing-6) var(--spacing-8);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.classesSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.classesTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.classesTitleIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+.classesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+  padding-right: var(--spacing-2);
+}
+
+.classesList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.classesList::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+  border-radius: 3px;
+}
+
+.classesList::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+
+.classesList::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+.classItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  transition: background-color var(--transition-slow),
+    border-color var(--transition-slow), transform var(--transition-slow);
+  will-change: transform;
+}
+
+.classItem:hover {
+  background: var(--color-gray-100);
+  border-color: var(--color-gray-300);
+  transform: translateX(4px);
+}
+
+.classInfo {
+  flex: 1;
+}
+
+.classTitle {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-gray-800);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.classDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.classDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+}
+
+.classDetail {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.classDetailIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.classActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  align-items: flex-end;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-lg);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.statusAvailable {
+  background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.statusClosed {
+  background: linear-gradient(135deg, var(--color-error) 0%, #dc2626 100%);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.enrollButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-4);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-slow);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  min-width: 100px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.enrollButton:hover {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-hover) 0%,
+    var(--color-secondary-hover) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.enrollButton:active {
+  transform: translateY(0);
+}
+
+.enrollButton:disabled {
+  background: var(--color-gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.noClasses {
+  text-align: center;
+  padding: var(--spacing-8);
+  color: var(--color-gray-500);
+}
+
+.noClassesIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-gray-300);
+  margin: 0 auto var(--spacing-4);
+}
+
+.noClassesTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.noClassesDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cardHeader {
+    padding: var(--spacing-4);
+    height: 200px;
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+    gap: var(--spacing-2);
+    overflow: hidden;
+  }
+
+  .courseTitle {
+    font-size: var(--font-size-lg);
+    height: 2.8rem;
+    margin: 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .courseDescription {
+    height: 2.8rem;
+    margin: 0 0 var(--spacing-1) 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .themesContainer {
+    height: 2.2rem;
+    overflow: visible;
+    margin-top: auto;
+    align-items: flex-end;
+  }
+
+  .cardContent {
+    padding: var(--spacing-4) var(--spacing-6);
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .courseTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .classesList {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+
+  .classItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+  }
+
+  .classActions {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

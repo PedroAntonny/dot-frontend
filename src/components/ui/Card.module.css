@@ -1,0 +1,148 @@
+.card {
+  background: var(--color-white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.cardHeader {
+  padding: var(--spacing-6) var(--spacing-6) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: var(--spacing-4);
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-gray-800);
+  margin: 0 0 var(--spacing-2) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.cardTitle svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+
+.cardSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cardContent {
+  padding: 0 var(--spacing-6) var(--spacing-6);
+}
+
+.cardFooter {
+  padding: var(--spacing-4) var(--spacing-6);
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: var(--spacing-4);
+}
+
+.elevated {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.elevated:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+}
+
+.outlined {
+  border: 2px solid var(--color-gray-200);
+  box-shadow: none;
+}
+
+.outlined:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+}
+
+.gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  color: var(--color-white);
+}
+
+.gradient .cardTitle {
+  color: var(--color-white);
+}
+
+.gradient .cardSubtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.gradient .cardTitle svg {
+  color: var(--color-white);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: var(--border-radius-lg);
+  }
+
+  .cardHeader,
+  .cardContent {
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+  }
+
+  .cardFooter {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+}

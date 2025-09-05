@@ -1,0 +1,226 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--border-radius-md);
+  border: 1px solid;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  position: relative;
+  animation: slideIn var(--transition-normal) ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alertIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.alertContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.alertTitle {
+  font-weight: 600;
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.alertMessage {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.alertDismiss {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  opacity: 0.7;
+}
+
+.alertDismiss:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.alertDismiss svg {
+  width: 16px;
+  height: 16px;
+}
+
+.info {
+  background: linear-gradient(
+    135deg,
+    var(--color-info-light) 0%,
+    var(--color-info-gradient-end) 100%
+  );
+  border-color: var(--color-info);
+  color: var(--color-info-dark);
+}
+
+.info .alertIcon {
+  color: var(--color-info);
+}
+
+.info .alertDismiss {
+  color: var(--color-info-dark);
+}
+
+.success {
+  background: linear-gradient(
+    135deg,
+    var(--color-success-light) 0%,
+    var(--color-success-gradient-end) 100%
+  );
+  border-color: var(--color-success);
+  color: var(--color-success-dark);
+}
+
+.success .alertIcon {
+  color: var(--color-success);
+}
+
+.success .alertDismiss {
+  color: var(--color-success-dark);
+}
+
+.warning {
+  background: linear-gradient(
+    135deg,
+    var(--color-warning-light) 0%,
+    var(--color-warning-gradient-end) 100%
+  );
+  border-color: var(--color-warning);
+  color: var(--color-warning-dark);
+}
+
+.warning .alertIcon {
+  color: var(--color-warning);
+}
+
+.warning .alertDismiss {
+  color: var(--color-warning-dark);
+}
+
+.error {
+  background: linear-gradient(
+    135deg,
+    var(--color-error-light) 0%,
+    var(--color-error-gradient-end) 100%
+  );
+  border-color: var(--color-error);
+  color: var(--color-error-dark);
+}
+
+.error .alertIcon {
+  color: var(--color-error);
+}
+
+.error .alertDismiss {
+  color: var(--color-error-dark);
+}
+
+.small {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-xs);
+}
+
+.small .alertIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.large {
+  padding: var(--spacing-5) var(--spacing-6);
+  font-size: var(--font-size-base);
+}
+
+.large .alertIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.dismissible {
+  padding-right: var(--spacing-12);
+}
+
+.withAction {
+  padding-bottom: var(--spacing-3);
+}
+
+.actionButton {
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-4);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.info .actionButton {
+  background: var(--color-info);
+  color: var(--color-white);
+}
+
+.info .actionButton:hover {
+  background: var(--color-info-hover);
+}
+
+.success .actionButton {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+
+.success .actionButton:hover {
+  background: var(--color-success-hover);
+}
+
+.warning .actionButton {
+  background: var(--color-warning);
+  color: var(--color-white);
+}
+
+.warning .actionButton:hover {
+  background: var(--color-warning-hover);
+}
+
+.error .actionButton {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.error .actionButton:hover {
+  background: var(--color-error-hover);
+}
+
+@media (max-width: 768px) {
+  .alert {
+    padding: 0.875rem var(--spacing-4);
+  }
+
+  .alertDismiss {
+    top: 0.625rem;
+    right: 0.625rem;
+  }
+}

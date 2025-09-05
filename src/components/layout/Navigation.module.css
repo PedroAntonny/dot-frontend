@@ -1,0 +1,105 @@
+.navigation {
+  margin-bottom: var(--spacing-8);
+}
+
+.navTabs {
+  display: flex;
+  gap: var(--spacing-8);
+  border-bottom: 2px solid var(--color-gray-200);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navTab {
+  position: relative;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4) 0;
+  border: none;
+  background: none;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-gray-500);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  border-bottom: 3px solid transparent;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.navButton:hover {
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.navButton.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.navButton.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  border-radius: 2px 2px 0 0;
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .navTabs {
+    gap: var(--spacing-6);
+    overflow-x: auto;
+    padding-bottom: 0;
+  }
+
+  .navButton {
+    padding: var(--spacing-3) 0;
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    gap: var(--spacing-3);
+  }
+
+  .navIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navTabs {
+    gap: var(--spacing-4);
+  }
+
+  .navButton {
+    padding: var(--spacing-3) var(--spacing-2);
+    font-size: var(--font-size-xs);
+    gap: var(--spacing-2);
+  }
+
+  .navButton span {
+    display: none;
+  }
+
+  .navIcon {
+    width: 24px;
+    height: 24px;
+  }
+}

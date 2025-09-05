@@ -1,0 +1,36 @@
+.courseGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+  transition: all var(--transition-slow);
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .courseGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .courseGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.courseGrid {
+  contain: layout;
+}
+
+@media (max-width: 767px) {
+  .courseGrid {
+    gap: var(--spacing-3);
+  }
+}
+
+.courseGrid {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

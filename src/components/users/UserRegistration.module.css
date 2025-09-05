@@ -1,0 +1,139 @@
+.registrationCard {
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.registrationCard:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  padding: var(--spacing-8);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardHeader::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, -20px) rotate(180deg);
+  }
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-3) 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2);
+  backdrop-filter: blur(10px);
+}
+
+.headerDescription {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cardContent {
+  padding: var(--spacing-10);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formField:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-4);
+  padding-top: var(--spacing-6);
+  border-top: 2px solid var(--color-gray-100);
+}
+
+.alertContainer {
+  margin-bottom: var(--spacing-8);
+}
+
+@media (max-width: 768px) {
+  .cardHeader {
+    padding: var(--spacing-6);
+  }
+
+  .cardContent {
+    padding: var(--spacing-6);
+  }
+
+  .headerTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+}
